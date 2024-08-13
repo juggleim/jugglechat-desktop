@@ -1,0 +1,1 @@
+require('jugglechat-electron/render');
