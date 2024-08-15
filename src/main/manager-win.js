@@ -6,10 +6,10 @@ const isDev = process.env.NODE_ENV === 'development';
 module.exports = function(){
   let dockICON = path.join(__dirname, '../' ,'assets/icon.png');
   let mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 700,
-    minWidth: 1200,
-    minHeight: 700,
+    width: 1050,
+    height: 650,
+    minWidth: 1050,
+    minHeight: 650,
     frame: false,
     icon: dockICON,
     webPreferences: {
