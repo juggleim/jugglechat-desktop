@@ -22,9 +22,9 @@ module.exports = function(){
     url = url = process.argv[2] || ''; 
   }
   mainWindow.loadURL(url);
-  mainWindow.setWindowButtonVisibility(true)
 
   if (isMac) {
+    mainWindow.setWindowButtonVisibility(true);
     app.dock.setIcon(dockICON);
   }
 
