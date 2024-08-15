@@ -6,8 +6,8 @@ function next(){
     setWindow: ({ type }) => {
       ipcRenderer.invoke(JG_RENDER_NAME.WIN_OPTERATOR, { type });
     },
-    isMaximized: () => {
-      return ipcRenderer.invoke(JG_RENDER_NAME.WIN_IS_MAXED, {  });
+    isMaximized: async () => {
+      return await ipcRenderer.invoke(JG_RENDER_NAME.WIN_IS_MAXED, {  });
     },
   });
 }
