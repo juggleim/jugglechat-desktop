@@ -1,7 +1,7 @@
 const { app, BrowserWindow, globalShortcut, Menu } = require('electron')
 const path = require('node:path');
 const isMac = process.platform === 'darwin'
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = !app.isPackaged;
 
 module.exports = function(){
   let dockICON = path.join(__dirname, '../' ,'assets/icon.png');
@@ -17,7 +17,7 @@ module.exports = function(){
       preload: path.join(__dirname, '../', 'render', 'preload.js')
     }
   })
-    let url = 'https://im.jugglechat.com/';
+  let url = 'https://im.jugglechat.com/';
   if(isDev){
     url = url = process.argv[2] || ''; 
   }

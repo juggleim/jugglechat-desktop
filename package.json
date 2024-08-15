@@ -4,8 +4,7 @@
   "description": "",
   "main": "./src/main/main.js",
   "scripts": {
-    "dev": "NODE_ENV=development electron-forge start -- http://localhost:5173",
-    "dev:win": "set NODE_ENV=development& electron-forge start -- http://localhost:5173",
+    "dev": "electron-forge start -- http://localhost:5173",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
