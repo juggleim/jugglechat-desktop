@@ -4,8 +4,18 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: 'src/assets/icon/icon',
+    ignore: [
+      ".git",
+      ".vscode",
+      "node_modules/.cache",
+    ],
   },
-  rebuildConfig: {},
+  rebuildConfig: {
+    arch: 'x64',
+    target: '29.1.0',
+    module_name: 'node_sqlite3'
+  },
   makers: [
     {
       name: '@electron-forge/maker-squirrel',

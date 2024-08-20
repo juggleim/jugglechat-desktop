@@ -30,11 +30,12 @@ module.exports = function(){
 
   if (isDev) {
     mainWindow.webContents.openDevTools();
-    globalShortcut.register('CommandOrControl+Shift+K', () => {
-      mainWindow.webContents.openDevTools();
-    });
   }
 
+  globalShortcut.register('CommandOrControl+Shift+K', () => {
+    mainWindow.webContents.openDevTools();
+  });
+  
   let tpl = getMenus();
   let menu = Menu.buildFromTemplate(tpl)
   Menu.setApplicationMenu(menu)
