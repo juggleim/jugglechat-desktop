@@ -20,7 +20,7 @@ app.whenReady().then(() => {
   EventManager({ mainWindow });
 
   app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    // if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
 
