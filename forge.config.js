@@ -5,16 +5,8 @@ module.exports = {
   packagerConfig: {
     asar: true,
     icon: 'src/assets/icon/icon',
-    ignore: [
-      ".git",
-      ".vscode",
-      "node_modules/.cache",
-    ],
   },
   rebuildConfig: {
-    arch: 'x64',
-    target: '29.1.0',
-    module_name: 'node_sqlite3'
   },
   makers: [
     {
