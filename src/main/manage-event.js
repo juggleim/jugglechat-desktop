@@ -11,4 +11,12 @@ module.exports = function({ mainWindow }){
   ipcMain.handle(JG_RENDER_NAME.WIN_IS_MAXED, (event, args) => {
     return mainWindow.isMaximized();
   });
+
+  let setWin = (newWin) => {
+    mainWindow = newWin;
+  }
+
+  return {
+    setWin
+  }
 }

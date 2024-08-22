@@ -7,6 +7,7 @@ const isMac = process.platform === 'darwin'
 const isDev = process.env.NODE_ENV === 'development';
 
 let mainWindow = null;
+let isQuit = false;
 
 app.whenReady().then(() => {
 
@@ -17,13 +18,30 @@ app.whenReady().then(() => {
   mainWindow = WindowManager();
 
   // 初始化事件
-  EventManager({ mainWindow });
+  let eventManager = EventManager({ mainWindow });
+
+  mainWindow.on('close', (event) => {
+    if(!isQuit){
+      event.preventDefault();
+      mainWindow.hide();
+    }
+  });
 
   app.on('activate', () => {
-    // if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    if (BrowserWindow.getAllWindows().length === 0) {
+      mainWindow = WindowManager();
+      eventManager.setWin(mainWindow);
+    }else{
+      mainWindow.show();
+    }
   })
 })
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
+  if (process.platform !== 'darwin'){
+    app.quit()
+  }
+})
+app.on('before-quit', () => {
+  isQuit = true;
 })
