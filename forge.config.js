@@ -1,9 +1,11 @@
 const { FusesPlugin } = require('@electron-forge/plugin-fuses');
 const { FuseV1Options, FuseVersion } = require('@electron/fuses');
-
+const os = require('node:os');
 module.exports = {
   packagerConfig: {
+    name: 'JuggleChat',
     asar: true,
+    arch: os.arch(),
     icon: 'src/assets/icon/icon',
   },
   rebuildConfig: {

@@ -5,8 +5,8 @@
   "main": "./src/main/main.js",
   "scripts": {
     "dev": "electron-forge start -- http://localhost:5173",
-    "package": "electron-forge package --arch=arm64",
-    "make": "electron-forge make --arch=arm64"
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [
     "JuggleChat",
