@@ -1,4 +1,4 @@
-const { contextBridge } = require('electron');
+const { contextBridge, clipboard } = require('electron');
 const { ipcRenderer } = require('electron/renderer');
 const { JG_RENDER_NAME } = require('../enum');
 function next(){
@@ -9,6 +9,9 @@ function next(){
     isMaximized: async () => {
       return await ipcRenderer.invoke(JG_RENDER_NAME.WIN_IS_MAXED, {  });
     },
+    readImage: () => {
+      return clipboard.readImage();
+    }
   });
 }
 module.exports = next();
