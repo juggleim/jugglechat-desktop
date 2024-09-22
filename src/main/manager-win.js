@@ -6,10 +6,10 @@ const isDev = !app.isPackaged;
 module.exports = function(){
   let dockICON = path.join(__dirname, '../' ,'assets/icon.png');
   let mainWindow = new BrowserWindow({
-    width: 900,
-    height: 600,
-    minWidth: 900,
-    minHeight: 600,
+    width: 1100,
+    height: 750,
+    minWidth: 1100,
+    minHeight: 750,
     frame: false,
     icon: dockICON,
     webPreferences: {
