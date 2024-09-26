@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
-    "jugglechat-electron": "^1.6.7"
+    "jugglechat-electron": "^1.7.4"
   }
 }
