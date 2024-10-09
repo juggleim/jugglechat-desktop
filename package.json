@@ -4,9 +4,8 @@
   "description": "",
   "main": "./src/main/main.js",
   "scripts": {
-    "dev": "electron-forge start -- http://localhost:5173",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "dev": "electron . http://localhost:5173",
+    "build": "electron-builder"
   },
   "keywords": [
     "JuggleChat",
@@ -16,18 +15,74 @@
   "author": "xiaoshan",
   "license": "MIT",
   "devDependencies": {
-    "@electron-forge/cli": "^7.4.0",
-    "@electron-forge/maker-deb": "^7.4.0",
-    "@electron-forge/maker-rpm": "^7.4.0",
-    "@electron-forge/maker-squirrel": "^7.4.0",
-    "@electron-forge/maker-zip": "^7.4.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
-    "@electron-forge/plugin-fuses": "^7.4.0",
     "@electron/fuses": "^1.8.0",
-    "electron": "29.1.0"
+    "electron": "29.1.0",
+    "electron-builder": "^25.1.7"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
     "jugglechat-electron": "^1.7.4"
+  },
+  "build": {
+    "productName": "JuggleChat",
+    "copyright": "Copyright JuggleIM",
+    "appId": "org.erb.jugglechat",
+    "asar": true,
+    "asarUnpack": "**\\*.{node,dll}",
+    "files": [
+      "src",
+      "node_modules",
+      "package.json"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./build/icons/aaa.ico",
+      "uninstallerIcon": "./build/icons/bbb.ico",
+      "installerHeaderIcon": "./build/icons/aaa.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "JuggleChat",
+      "include": "build/script/installer.nsh"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": ""
+      }
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "src/assets/icon/icon.icns"
+    },
+    "win": {
+      "icon": "",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "extraResources": [
+      "./assets/**"
+    ]
   }
 }
