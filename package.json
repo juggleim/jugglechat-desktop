@@ -16,6 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "@electron/fuses": "^1.8.0",
+    "@electron/notarize": "^2.5.0",
     "electron": "29.1.0",
     "electron-builder": "^25.1.7"
   },
@@ -26,49 +27,26 @@
   "build": {
     "productName": "JuggleChat",
     "copyright": "Copyright JuggleIM",
-    "appId": "org.erb.jugglechat",
+    "appId": "com.juggleim.desktop.jugglechat",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
+    "afterSign": "scripts/notarize.js",
     "files": [
       "src",
       "node_modules",
       "package.json"
     ],
-    "nsis": {
-      "oneClick": false,
-      "allowElevation": true,
-      "allowToChangeInstallationDirectory": true,
-      "installerIcon": "./build/icons/aaa.ico",
-      "uninstallerIcon": "./build/icons/bbb.ico",
-      "installerHeaderIcon": "./build/icons/aaa.ico",
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "JuggleChat",
-      "include": "build/script/installer.nsh"
-    },
     "publish": [
       {
         "provider": "generic",
         "url": ""
       }
     ],
-    "dmg": {
-      "contents": [
-        {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        },
-        {
-          "x": 130,
-          "y": 150,
-          "type": "file"
-        }
-      ]
-    },
     "mac": {
-      "icon": "src/assets/icon/icon.icns"
+      "icon": "src/assets/icon/icon.icns",
+      "hardenedRuntime": true,
+      "entitlementsInherit": "scripts/entitlements.mac.plist",
+      "entitlements": "scripts/entitlements.mac.plist"
     },
     "win": {
       "icon": "",
