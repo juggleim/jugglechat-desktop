@@ -18,7 +18,7 @@ module.exports = function(){
       preload: path.join(__dirname, '../', 'render', 'preload.js')
     }
   })
-  let url = 'https://im.jugglechat.com/';
+  let url = 'https://im.juggle.im/';
   if(isDev){
     url = args[0]; 
   }
@@ -54,7 +54,7 @@ function getMenus() {
             label: '关于 JuggleChat',
             click: async () => {
               const { shell } = require('electron')
-              await shell.openExternal('https://www.jugglechat.com/')
+              await shell.openExternal('https://www.juggle.im/')
             }
           },
           { role: 'hide', label: '隐藏 JuggleChat' },
